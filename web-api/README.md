@@ -27,12 +27,11 @@ Visual Studio est disponible sur PC Windows et Mac. Il est nativement prévu pou
 
 Bien qu'il soit aussi possible via d'autres IDE comme VS Code, il sera plus simple d'utiliser Visual Studio 2019 pour travailler sur cette API, ne serait-ce que pour la génération du code behind pour la partie Spectflow.
 
-### [![sflogo](./img/SF_logo.png)](http://specflow.org)
+### [Specflow](http://specflow.org)
 
 Specflow est un outil de définition et d'excution de tests de comportements (BDD). Avec celui-ci, vous pouvez écrire vos features en Gherkin et les automatiser.
 
 La version offcielle est pour Windows mais il existe une version de [Straight'8s pour MacOS](https://github.com/straighteight/SpecFlow-VS-Mac-Integration) :
-![capture 1](./img/specflow-mac.png)
 
 ## Exemple
 
