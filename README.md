@@ -4,9 +4,14 @@ Un exemple pour apprendre à piloter ses devs par les comportements en React.
 
 ## Qu'allons nous coder ?
 
-Nous ferons ici un formulaire de souscription pour une assurance [Axa](http://www.axa.fr) (leur toolkit est bien fait et ça fait un exemple)
+Nous allons développer, cette fois, un outil de reporting qui vérifiera la qualité de nos builds Azure DevOps:
 
-Nous nous baserons sur API dotnet core dont les sources sont présentes ici.
+- Utilisation des taches [SonarQube](https://www.sonarqube.org/) au bon endroit
+- L'utilisation de [Lifecycle](https://fr.sonatype.com/nexus-lifecycle)
+- La présence d'un trigger d'Intégration Continue
+- Status de la dernière build lancée
+
+Pour la partie design, nous nous baserons le [Google's Material Design](https://material.io/design/introduction/).
 
 ## ReactJS
 
@@ -128,9 +133,24 @@ Pour les code review, il existe deux outils :
 1. **Revue de code :** moment passé entre développeurs pour trouver un maximum de bug, vulnérabilité ou code smell.
 2. **Pull request :** même principe que la revue de code mais de façon asynchrone.
 
-#### Regrouper son code par fonctionnalité métier
+#### Pourquoi utiliser `typescript` ?
 
-L'objectif est de regrouper le code source de façon à ce qu'un product owner ou un client puisse s'y retrouver.
+Pour quelques raisons simples :
+
+- L'utilisation des types sécurise le code et vous alerte de toute incohérence
+- Vous aide à mieux comprendre comment fonctionne vos libraries (`recompose` n'est pas magique)
+- Vous permet d'être dans l'état de l'art du javascript en avance de phase (oui, Typescript, c'est du Javascript !)
+
+#### Le Domain Driven Design
+
+Le Domain Driven Design (DDD, terme inventé par Eric Evans dans son livre du même titre) est une approche du développement logiciel pour des besoins complexes en connectant l' implémentation à un modèle évolutif.
+
+DDD est basé sur deux principes :
+
+- Toute conception métier complexe doit se baser sur un modèle de domaine.
+- Se focaliser en premier sur le cœur de métier et sa logique au lieu des contraintes techniques.
+
+Le DDD intervient sur des projets où les concepts métiers sont difficiles à comprendre et il est assez difficile à apréhender. Ainsi, nous ferons preuve de pragmatisme : l'objectif est de regrouper le code source de façon à ce qu'un product owner ou un client puisse s'y retrouver.
 
 Voici un exemple en typescript :
 
@@ -148,10 +168,30 @@ src
   |_ ...
 ```
 
-#### Pourquoi utiliser `typescript` ?
+Nous aurons ici une approche hybride entre le TDD, le BDD et le DDD :
 
-Pour quelques raisons simples :
+- Tout notre code sera testé mais couverture sera partagée entre tests unitaires et tests de comportement
+- Tous nos tests serons automatisés et piloteront nos développements et notre design
+- L'approche sera orientée métier exclusivement, la technique (ou technologie) ne sera abordée que comme solution à un problème fonctionnel
+- Les scenarios Gherkin seront co-écris entre le développeur, le testeur et le spécialiste métier
+- L'avancement du projet se fera de façon itérative priorisé par la valeur business.
 
-- L'utilisation des types sécurise le code et vous alerte de toute incohérence
-- Vous aide à mieux comprendre comment fonctionne vos libraries (`recompose` n'est pas magique)
-- Vous permet d'être dans l'état de l'art du javascript en avance de phase (oui, Typescript, c'est du Javascript !)
+![approche hybride](docs/images/approche-hybride.jpg)
+
+#### Clean Architecture
+
+La Clean Architecture vise à réduire les dépendances de votre logique métier avec les services que vous consommez (API, Base de données, Framework, Librairies tierces), pour maintenir une application stable au cours de ses évolutions, de ses tests mais également lors de changements ou mises à jour des ressources externes.
+
+![Clean Architecture](docs/images/CleanArchitecture.jpg)
+
+Lors de l’implémentation de cette architecture il existe des règles, ayant toutes pour maître-mot « **l’indépendance** ».
+
+La logique implémentée doit :
+
+- Être **indépendante des frameworks** : les frameworks et librairies doivent être des outils, sans pour autant vous contraindre.
+- Être **testable** indépendamment : les tests doivent pouvoir être réalisés sans éléments externes (interface utilisateur, base de données ...)
+- Être **indépendante de l’interface utilisateur** : l’interface utilisateur doit pouvoir changer de forme (console, interface web ...)
+- Être **indépendante de la base de données** : il doit être possible de changer de SGBD.
+- Être **indépendante de tout service ou système externe** : en résumé elle ne doit pas avoir conscience de ce qui l’entoure.
+
+De même que pour nos pratique, nous en aurons une approche pragmatique et progressive.
