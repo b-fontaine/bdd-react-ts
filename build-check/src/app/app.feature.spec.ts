@@ -1,7 +1,7 @@
 import { defineFeature, loadFeature, DefineStepFunction } from "jest-cucumber";
 import AppNumbers from "./app.pure";
 
-const feature = loadFeature("./src/app/app.feature");
+const feature = loadFeature("./app.feature");
 
 const addNumber = (given: DefineStepFunction, numbers: AppNumbers) => {
   given(/^J'entre (.*) dans le calculateur$/, (nombre: string) => {

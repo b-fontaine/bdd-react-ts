@@ -9,10 +9,12 @@ Il s'agit surtout d'un prérequis à tout le reste.
 La documentation est disponible [ici](https://docs.microsoft.com/fr-fr/azure/devops/integrate/get-started/authentication/oauth?view=azure-devops) et [là](https://docs.microsoft.com/fr-fr/rest/api/azure/devops/graph/avatars/get?view=azure-devops-rest-5.1).
 
 En gros, voici comment se déroule l'authentification avec votre MicrosoftID :
+
 ![UML](https://docs.microsoft.com/fr-fr/azure/devops/integrate/get-started/authentication/media/oauth-overview.png?view=azure-devops)
 
 La toute première chose à faire, avant même de commencer à poser les mains dans le code, c'est d'[enregistrer votre application](https://app.vsaex.visualstudio.com/app/register).
 Voici un exemple :
+
 ![image](images/build-status-app-registered.png)
 
 ### URLs à appeler
@@ -141,7 +143,7 @@ Feature: Authentification
     Scenario: Affichage du logo
         Given Je suis connecté avec le compte 'utilisateur@microsoft.com'
         When J'arrive sur la page d'accueil
-        Then La récupération de mon avatar s'est faite avec le token 'tok3n' qui a retourné l'url 'https://vssps.dev.azure.com/mondomaine/_apis/graph/Subjects/aad.MGU3MGRiYTItMTExNC03YmZhLTg0MmEtZTVkY2M3YzI0OTcz/avatars?size={size}&format=png'
+        Then La récupération de mon avatar s'est faite avec le token 'tok3n' qui a retourné l'url 'https://vssps.dev.azure.com/mondomaine/_apis/graph/Subjects/aad.MGU3MGRiYTItMTExNC03YmZhLTg0MmEtZTVkY2M3YzI0OTcz/avatars?size=medium&format=png'
 ```
 
 Il manque beaucoup de cas et de détails que vous pourrez régler via des tests unitaires ou d'autres scenarios de votre cru (pour les cas d'erreurs, par exemple).
