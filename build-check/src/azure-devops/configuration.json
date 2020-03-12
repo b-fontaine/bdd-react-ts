@@ -1,5 +1,6 @@
 {
   "client_id": "B40502CB-F643-4F35-B258-3D77ABA7953B",
   "client_secret": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im9PdmN6NU1fN3AtSGpJS2xGWHo5M3VfVjBabyJ9.eyJjaWQiOiJiNDA1MDJjYi1mNjQzLTRmMzUtYjI1OC0zZDc3YWJhNzk1M2IiLCJjc2kiOiJjMzQ2MDdkZi1kZGMzLTRjZDktOThiMS1kZTgxNmNmMDEyZWQiLCJuYW1laWQiOiJiOTE2ZWRhMS0zOTU1LTRjMTAtYjI0My04OTM3MjBkZDdmZjkiLCJpc3MiOiJhcHAudnN0b2tlbi52aXN1YWxzdHVkaW8uY29tIiwiYXVkIjoiYXBwLnZzdG9rZW4udmlzdWFsc3R1ZGlvLmNvbSIsIm5iZiI6MTU4MDgyODAwMSwiZXhwIjoxNzM4NjgwODAxfQ.L7s3DIFbiKL03qZ40QQCH4izWigv3n6eVSTXCavHo1mYKtjmOo3eRDKXM5wi0s-IBe5OooBSBTSTPVwOG53idQo3dgi-vzQrQxGy1kwuRE6_nQLpdojK2ojzNlcEDcq-m_jH-OwlZOmsaS_5kXgwV3M4o7KLiWKKSk_drByR7cGLCcEGxNBkBZ4MFzQfI_UamQqm9oQ1mrGsvq1kAdXpQM_Q_Ezwfv6H0COHWYPvHEv8AdchFh0vtz06JT05MzI8XGc432Tr_APCqW-3zKOOeXk01sdstJgWsGZfaWYs1sVTD4A8TNfRx4O7gM4KYgmpjNTOC8QSolR1tBmKGQPIpA",
-  "scope": "vso.analytics vso.auditlog vso.build vso.graph vso.identity vso.notification vso.project vso.release vso.serviceendpoint vso.taskgroups_read vso.variablegroups_read vso.wiki"
+  "scope": "vso.analytics vso.auditlog vso.build vso.graph vso.identity vso.notification vso.project vso.release vso.serviceendpoint vso.taskgroups_read vso.variablegroups_read vso.wiki",
+  "store": "sessionStorage"
 }
